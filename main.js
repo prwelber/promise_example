@@ -33,6 +33,7 @@ var getUserWithBluebird = function (user) {
 				var userData = JSON.parse(res.body)
 				name = userData.name
 				resolve(name)
+				// name: Leanne Graham
 			}
 		});
 	});
@@ -42,16 +43,20 @@ getUserWithBluebird(1)
 // resolve function of the promise
 .then(function(usernameData) {
 	console.log('got username with bluebird:', usernameData);
+	// logs: got username with bluebird: Leanne Graham
 	return usernameData + ' is the name of a user!!!! SICK!';
 })
 .then(function(newUsernameData) {
 	console.log('check out the new data', newUsernameData);
+	// logs: check out the new data Leanne Graham is the name of a user!!!! SICK!
+
 })
 .catch(function (error) {
 	console.log('error getting user with bluebird', error);
 })
 .finally(function () {
 	console.log('this gets run no matter what, error or not');
+	// logs: this gets run no matter what, error or not
 })
 
 /*
