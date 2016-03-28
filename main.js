@@ -70,3 +70,43 @@ And not only can you return single values from each .then block, you can
 also create and return new promises
 */
 
+
+
+
+var promiseFuncAddFive = function promiseFuncAddFive (arr) {
+	return new Promise (function (resolve, reject) {
+		var newArr = arr.map(function (el){
+			return el + 5;
+		});
+		resolve(newArr);
+	});
+}
+
+var eachFunc = function eachFunc(thing) {
+	var o = {};
+	thing.forEach(function (el) {
+		o[el] = true;
+	});
+	return o;
+}
+
+promiseFuncAddFive([1,2,3,4,5])
+.then(function(data) {
+	console.log("here is the data from the mapped function:", data);
+	return eachFunc(data);
+	// we can use the function defined above to make chained then blocks nice and tidy
+})
+.then(function(obj) {
+	console.log("obj created in previous then:", obj);
+})
+.catch(function(error) {
+	console.log('oops error', error);
+})
+
+
+
+
+
+
+
+
