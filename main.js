@@ -30,9 +30,9 @@ var getUserWithBluebird = function (user) {
 		request(url + user, function(err, res) {
 			if (err) { reject(err); }
 			else {
-				var userData = JSON.parse(res.body)
-				name = userData.name
-				resolve(name)
+				var userData = JSON.parse(res.body);
+				name = userData.name;
+				resolve(name);
 				// name: Leanne Graham
 			}
 		});
@@ -49,7 +49,6 @@ getUserWithBluebird(1)
 .then(function(newUsernameData) {
 	console.log('check out the new data', newUsernameData);
 	// logs: check out the new data Leanne Graham is the name of a user!!!! SICK!
-
 })
 .catch(function (error) {
 	console.log('error getting user with bluebird', error);
@@ -58,6 +57,7 @@ getUserWithBluebird(1)
 	console.log('this gets run no matter what, error or not');
 	// logs: this gets run no matter what, error or not
 })
+
 
 /*
 Essentially, the getUser function returns a promise object, inside of which
